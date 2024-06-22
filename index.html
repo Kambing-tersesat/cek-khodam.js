@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awokwok gw ngapain</title>
+    <link rel="stylesheet" href="style/index.css" />
+  </head>
+  <body class="bg-base-100">
+    <div class="container mx-auto px-4">
+      <h1
+        class="text-4xl font-bold mb-4 text-base-content text-center font-mono pt-24"
+      >
+        Masukkan nama
+      </h1>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input
+          type="text"
+          id="kataKunci"
+          class="form-control bg-base-200 p-3 mb-0 text-center align-middle font-mono font-thin max-xl:w-screen xl:w-screen md:w-screen lg:w-screen sm:w-max"
+          placeholder="Masukkan nama anda ..."
+        />
+        <button
+          onclick="tampilkanGambar()"
+          class="btn btn-primary btn-outline"
+          id="button"
+        >
+          Cek khodam
+        </button>
+      </div>
+
+      <div
+        id="tampilanGambar"
+        class="mt-8 justify-center align-middle items-center mx-10"
+      >
+        <div class="items-center justify-center align-middle flex">
+          <img src="" id="gambarElement" class="w-auto h-auto object-cover" />
+        </div>
+        <div
+          id="deskripsiSingkat"
+          class="mt-4 text-base-content text-center"
+        ></div>
+      </div>
+    </div>
+
+    <script>
+      const gambarDanDeskripsi = [
+        {
+          namaFile: "khodam/karbit.jpg",
+          deskripsiSingkat: "Khodam kamu adalah raja karbit",
+        },
+        {
+          namaFile: "khodam/skibidi.jpeg",
+          deskripsiSingkat: "Khodam kamu adalah Skibidi Toilet",
+        },
+        {
+          namaFile: "khodam/tax.jpeg",
+          deskripsiSingkat: "Khodam kamu adalah fanum tax",
+        },
+        {
+          namaFile: "khodam/download.jpeg",
+          deskripsiSingkat: "Khodam kamu adalah Gigachad",
+        },
+        {
+          namaFile: "khodam/raja.jpeg",
+          deskripsiSingkat: "Khodam kamu adalah Raja mewing",
+        },
+        {
+          namaFile: "khodam/lele.jpeg",
+          deskripsiSingkat: "Khodam kamu adalah ikan lele",
+        },
+        {
+          namaFile: "khodam/world.jpeg",
+          deskripsiSingkat: "khodam kamu adalah the world wryyyyy",
+        },
+        {
+          namaFile: "khodam/garox.jpeg",
+          deskripsiSingkat: "khodam kamu adalah mamank garox ,lu semua ngen",
+        },
+        {
+          namaFile: "khodam/terkadang.jpeg",
+          deskripsiSingkat: "khodam kamu adalah mulet terkadang",
+        },
+        {
+          namaFile: "khodam/milos.jpeg",
+          deskripsiSingkat: "khodam kamu adalah gus milos",
+        },
+        {
+          namaFile: "khodam/anime.jpeg",
+          deskripsiSingkat: "khodam kamu adalah anime",
+        },
+        {
+          namaFile: "khodam/kobo.jpeg",
+          deskripsiSingkat: "khodam kamu adalah pengendali air",
+        },
+      ];
+
+      function tampilkanGambar() {
+        const kataKunci = document.getElementById("kataKunci").value;
+        if (kataKunci.trim() === ""){
+          alert("masukin nama dulu gblk")
+          return;
+        } 
+        const indeksAcak = Math.floor(
+          Math.random() * gambarDanDeskripsi.length
+        );
+        const gambar = gambarDanDeskripsi[indeksAcak];
+
+        document.getElementById("gambarElement").src = gambar.namaFile;
+        document.getElementById("deskripsiSingkat").textContent =
+          gambar.deskripsiSingkat;
+      }
+
+      document
+        .getElementById("tombolDeskripsiLengkap")
+        .addEventListener("click", function () {
+          const deskripsiLengkapElement =
+            document.getElementById("deskripsiLengkap");
+          const tombolDeskripsiLengkapElement = document.getElementById(
+            "tombolDeskripsiLengkap"
+          );
+
+          if (deskripsiLengkapElement.classList.contains("hidden")) {
+            deskripsiLengkapElement.classList.remove("hidden");
+            tombolDeskripsiLengkapElement.textContent =
+              "Sembunyikan Deskripsi Lengkap";
+          } else {
+            deskripsiLengkapElement.classList.add("hidden");
+            tombolDeskripsiLengkapElement.textContent =
+              "Lihat Deskripsi Lengkap";
+          }
+        });
+    </script>
+  </body>
+</html>
